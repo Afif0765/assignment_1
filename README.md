@@ -53,7 +53,7 @@ Example:
 
 ## 🔗 GitHub Repository
 
-[https://github.com/yourusername/unit-trust-app](https://github.com/yourusername/unit-trust-app)
+(https://github.com/Afif0765/assignment_1.git)
 
 ---
 
