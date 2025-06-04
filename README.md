@@ -38,10 +38,10 @@ Example:
 ## 🖼️ Screenshots
 
 ### 🏠 Home Page
-![Home Page](screenshots/home.png)
+![Home Page](screenshot/home.png)
 
 ### ℹ️ About Page
-![About Page](screenshots/about.png)
+![About Page](screenshot/about.png)
 
 ---
 
