@@ -202,7 +202,7 @@ class _HomePageState extends State<HomePage> {
 
 class AboutPage extends StatelessWidget {
   Future<void> _launchGitHub() async {
-    final Uri url = Uri.parse('https://github.com/Afif0765/unit-trust-app.git');
+    final Uri url = Uri.parse('https://github.com/Afif0765/assignment_1.git');
     if (await launcher.canLaunchUrl(url)) {
       await launcher.launchUrl(url, mode: launcher.LaunchMode.externalApplication);
     } else {

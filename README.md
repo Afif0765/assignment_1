@@ -47,7 +47,8 @@ Example:
 
 ## 📦 APK Download
 
-[Download APK](https://github.com/yourusername/unit-trust-app/releases)
+[Download APK](https://github.com/Afif0765/assignment_1.git/build/app/outputs/flutter-apk/app-release.apk
+)
 
 ---
 
