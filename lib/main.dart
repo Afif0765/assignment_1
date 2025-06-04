@@ -225,7 +225,7 @@ class AboutPage extends StatelessWidget {
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/background.jpg'),
-            fit: BoxFit.fill,
+            fit: BoxFit.fitHeight,
           ),
         ),
         child: SafeArea(
