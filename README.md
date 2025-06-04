@@ -43,6 +43,9 @@ Example:
 ### ℹ️ About Page
 ![About Page](screenshot/about.png)
 
+### Example 
+![Example](screenshot/example.png)
+
 ---
 
 ## 📦 APK Download

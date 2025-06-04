@@ -87,7 +87,7 @@ class _HomePageState extends State<HomePage> {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         title: Text('Unit Trust Dividend Calculator'),
-        backgroundColor: Colors.teal.withAlpha(204),
+        backgroundColor: Colors.white54.withAlpha(204),
         elevation: 0,
       ),
       drawer: Drawer(
@@ -120,78 +120,81 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       body: BackgroundContainer(
-        child: SingleChildScrollView(
-          padding: EdgeInsets.fromLTRB(20, 100, 20, 20),
-          child: Form(
-            key: _formKey,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Center(
-                  child: Image.asset('assets/logo.png', height: 120),
-                ),
-                SizedBox(height: 20),
-                Text(
-                  'Enter Investment Details',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
-                ),
-                SizedBox(height: 20),
-                TextFormField(
-                  controller: _fundController,
-                  keyboardType: TextInputType.number,
-                  decoration: InputDecoration(labelText: 'Invested Fund Amount (RM)'),
-                  validator: (value) => value!.isEmpty ? 'Please enter fund amount' : null,
-                ),
-                SizedBox(height: 15),
-                TextFormField(
-                  controller: _rateController,
-                  keyboardType: TextInputType.number,
-                  decoration: InputDecoration(labelText: 'Annual Dividend Rate (%)'),
-                  validator: (value) => value!.isEmpty ? 'Please enter rate' : null,
-                ),
-                SizedBox(height: 15),
-                TextFormField(
-                  controller: _monthsController,
-                  keyboardType: TextInputType.number,
-                  decoration: InputDecoration(labelText: 'Number of Months (1-12)'),
-                  validator: (value) {
-                    final val = int.tryParse(value!);
-                    if (val == null || val < 1 || val > 12) {
-                      return 'Enter valid months (1-12)';
-                    }
-                    return null;
-                  },
-                ),
-                SizedBox(height: 25),
-                Center(
-                  child: ElevatedButton.icon(
-                    onPressed: _calculateDividend,
-                    icon: Icon(Icons.calculate),
-                    label: Text('Calculate'),
-                    style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                      textStyle: TextStyle(fontSize: 16),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 30),
-                if (_result.isNotEmpty)
+        child: SafeArea(
+          child: SingleChildScrollView(
+            padding: EdgeInsets.all(20),
+            child: Form(
+              key: _formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
                   Center(
-                    child: Card(
-                      elevation: 4,
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                      color: Colors.teal[50],
-                      child: Padding(
-                        padding: EdgeInsets.all(16.0),
-                        child: Text(
-                          _result,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.teal[900]),
-                        ),
+                    child: Image.asset('assets/logo.png', height: 100),
+                  ),
+                  SizedBox(height: 20),
+                  Text(
+                    'Enter Investment Details',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
+                  ),
+                  SizedBox(height: 15),
+                  TextFormField(
+                    controller: _fundController,
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(labelText: 'Invested Fund Amount (RM)'),
+                    validator: (value) => value!.isEmpty ? 'Please enter fund amount' : null,
+                  ),
+                  SizedBox(height: 15),
+                  TextFormField(
+                    controller: _rateController,
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(labelText: 'Annual Dividend Rate (%)'),
+                    validator: (value) => value!.isEmpty ? 'Please enter rate' : null,
+                  ),
+                  SizedBox(height: 15),
+                  TextFormField(
+                    controller: _monthsController,
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(labelText: 'Number of Months (1-12)'),
+                    validator: (value) {
+                      final val = int.tryParse(value!);
+                      if (val == null || val < 1 || val > 12) {
+                        return 'Enter valid months (1-12)';
+                      }
+                      return null;
+                    },
+                  ),
+                  SizedBox(height: 12),
+                  Center(
+                    child: ElevatedButton.icon(
+                      onPressed: _calculateDividend,
+                      icon: Icon(Icons.calculate),
+                      label: Text('Calculate'),
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                        textStyle: TextStyle(fontSize: 16),
                       ),
                     ),
                   ),
-              ],
+                  SizedBox(height: 0),
+                  if (_result.isNotEmpty)
+                    Center(
+                      child: Card(
+                        elevation: 4,
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                        color: Colors.teal[50],
+                        child: Padding(
+                          padding: EdgeInsets.all(16.0),
+                          child: Text(
+                            _result,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold, color: Colors.teal[900]),
+                          ),
+                        ),
+                      ),
+                    ),
+                ],
+              ),
             ),
           ),
         ),
@@ -215,7 +218,7 @@ class AboutPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('About'),
-        backgroundColor: Colors.teal,
+        backgroundColor: Colors.white,
         elevation: 0,
       ),
       body: Container(
@@ -225,35 +228,37 @@ class AboutPage extends StatelessWidget {
             fit: BoxFit.fill,
           ),
         ),
-        child: SingleChildScrollView(
-          padding: EdgeInsets.all(20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(height: 20),
-              Center(
-                child: Image.asset('assets/logo.png', height: 120),
-              ),
-              SizedBox(height: 20),
-              Text(
-                'Unit Trust Dividend Calculator',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.black),
-              ),
-              SizedBox(height: 20),
-              Text('Author: Afif', style: TextStyle(fontSize: 16, color: Colors.black)),
-              Text('Matric No: 2023367671', style: TextStyle(fontSize: 16, color: Colors.black)),
-              Text('Course: Netsentric Computing', style: TextStyle(fontSize: 16, color: Colors.black)),
-              SizedBox(height: 20),
-              Text('© 2025 Afif. All rights reserved.', style: TextStyle(color: Colors.black)),
-              SizedBox(height: 20),
-              TextButton.icon(
-                onPressed: _launchGitHub,
-                icon: Icon(Icons.open_in_new),
-                label: Text('GitHub Repository'),
-              ),
-              SizedBox(height: 40),
-            ],
+        child: SafeArea(
+          child: SingleChildScrollView(
+            padding: EdgeInsets.all(20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(height: 20),
+                Center(
+                  child: Image.asset('assets/logo.png', height: 120),
+                ),
+                SizedBox(height: 20),
+                Text(
+                  'Unit Trust Dividend Calculator',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.black),
+                ),
+                SizedBox(height: 20),
+                Text('Author: Afif', style: TextStyle(fontSize: 16, color: Colors.black)),
+                Text('Matric No: 2023367671', style: TextStyle(fontSize: 16, color: Colors.black)),
+                Text('Course: Netsentric Computing', style: TextStyle(fontSize: 16, color: Colors.black)),
+                SizedBox(height: 20),
+                Text('© 2025 Afif. All rights reserved.', style: TextStyle(color: Colors.black)),
+                SizedBox(height: 20),
+                TextButton.icon(
+                  onPressed: _launchGitHub,
+                  icon: Icon(Icons.open_in_new),
+                  label: Text('GitHub Repository'),
+                ),
+                SizedBox(height: 40),
+              ],
+            ),
           ),
         ),
       ),
